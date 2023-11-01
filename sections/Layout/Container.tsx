@@ -1,5 +1,5 @@
-import { Section } from "deco/blocks/section.ts";
-import { context } from "deco/mod.ts";
+import { Section } from 'deco/blocks/section.ts';
+import { context } from 'deco/mod.ts';
 
 interface Props {
   children?: Section;
@@ -14,7 +14,7 @@ function Placeholder() {
 }
 
 function Container({ children }: Props) {
-  if (!context.isDeploy && typeof children?.Component !== "function") {
+  if (!context.isDeploy && typeof children?.Component !== 'function') {
     return (
       <div class="bg-primary bg-opacity-5 p-4">
         <Container children={{ Component: Placeholder, props: {} }} />
@@ -27,7 +27,7 @@ function Container({ children }: Props) {
   }
 
   return (
-    <div class="container">
+    <div class="container py-8 flex flex-col gap-8 lg:gap-10 text-base-content lg:py-10">
       <children.Component {...children.props} />
     </div>
   );
